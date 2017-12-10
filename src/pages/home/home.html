@@ -1,14 +1,45 @@
+<!--<ion-header>-->
+  <!--<ion-navbar>-->
+    <!--<ion-title>-->
+      <!--Ionic Blank-->
+    <!--</ion-title>-->
+  <!--</ion-navbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content padding>-->
+  <!--The world is your oyster.-->
+  <!--<p>-->
+    <!--If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.-->
+  <!--</p>-->
+<!--</ion-content>-->
+
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title style="text-align: center">Take Me Home Tonight</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-card *ngFor="let card of cards | async">
+
+    <ion-row>
+      <ion-col width-50 style="text-align: center">
+        <button ion-button round large color="secondary" (click)="gotoInfoPage()">Go Home</button>
+      </ion-col>
+    </ion-row>
+
+
+  <ion-footer>
+    <ion-row>
+      <ion-item>
+        <button ion-button block large (click)="gotoContactPage()">
+          <ion-icon name="ios-contacts"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-row>
+  </ion-footer>
+  </ion-card>
+
+
 </ion-content>
