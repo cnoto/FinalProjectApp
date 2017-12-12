@@ -26,41 +26,6 @@ export class DataProvider {
 
   }
 
-  updateCardDescription(cardID, newDesc): void {
-    this.cardsListRef.doc(cardID).update({"cardDesc": newDesc});
-  }
-
-  deleteCard(cardID): void {
-    this.cardsListRef.doc(cardID).delete();
-  }
-
-  addNewCard(cardInfo): void {
-    if (cardInfo) {
-      this.cardsListRef.add(cardInfo);
-    }
-  }
-
-  // items: any = [
-  //   {
-  //     item: "Snoop Dogg",
-  //     desc: [
-  //       {quote: "yaba daba doo"},
-  //     ]
-  //   },
-  //   {
-  //     item: "Gene Wilder",
-  //     desc: [
-  //       {quote: "yaba daba doo"},
-  //     ]
-  //   },
-  //   {
-  //     item: "Javier Bardem",
-  //     desc: [
-  //       {quote: "yaba daba doo"},
-  //     ]
-  //   }
-  // ]
-
   // constructor() {
   //   console.log('Hello DataProvider Provider');
   // }

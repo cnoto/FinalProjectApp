@@ -41,6 +41,7 @@ import {AngularFirestoreModule} from "angularfire2/firestore";
 import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
 import {FIREBASE_CONFIG} from "./firebase.config";
+// import {HomePage} from "../pages/home/home";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import {FIREBASE_CONFIG} from "./firebase.config";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    MyApp
 
   ],
   providers: [

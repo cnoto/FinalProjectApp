@@ -1,7 +1,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Home Address</ion-title>
+    <ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="addMap()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,21 +15,36 @@
 
 <ion-content padding>
 
-  <ion-card>
-    <ion-card-header>Capt. Picard's Address</ion-card-header>
+  <ion-card *ngFor="let map of maps">
+    <!--<ion-card-header>Capt. Picard's Address</ion-card-header>-->
     <ion-card-content>
 
+      <img src="https://i.stack.imgur.com/RUaFk.png">
+      <ion-fab right top>
+        <button ion-fab>
+          <ion-icon name="pin"></ion-icon>
+        </button>
+      </ion-fab>
       <ion-item>
         <h2>Address</h2>
-        <p>1234 Milkyway Place</p>
-        <p>Orion's Belt, NV 46032</p>
+        <p>{{map.address}}</p>
+        <p>{{map.city}}</p>
       </ion-item>
 
       <ion-item>
-        <button ion-button float-left large clear ion-button (click)="deleteCard(card.id)">
-          <ion-icon name="trash" color="danger"></ion-icon>
+        <span item-left>{{map.minutes}} min</span>
+        <span item-left>({{map.miles}} mi)</span>
+        <button ion-button icon-left clear item-end>
+          <ion-icon name="navigate"></ion-icon>
+          Start
         </button>
-        <button ion-button float-right large clear ion-button (click)="updateCardDescription(card)">
+      </ion-item>
+
+      <ion-item>
+        <button ion-button float-left large clear ion-button (click)="deleteCard(map)">
+          <ion-icon name="ios-trash" color="danger"></ion-icon>
+        </button>
+        <button ion-button float-right large clear ion-button (click)="updateCardDescription(map)">
           <ion-icon name="clipboard" color="primary"></ion-icon>
         </button>
       </ion-item>
