@@ -2,23 +2,27 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore";
 import {Observable} from "rxjs";
 
-export interface Card {
+export interface Map {
   id?: string;
-  cardDesc: string;
-  cardName: string;
+  address: string;
+  city: string;
+  miles: string;
+  minutes: string;
+  state: string;
+  zipcode: string;
 }
 
 @Injectable()
 export class DataProvider {
 
-  cardsListRef: AngularFirestoreCollection<Card>;
-  cardList: Observable<Card[]>;
+  mapsListRef: AngularFirestoreCollection<Map>;
+  mapList: Observable<Map[]>;
 
   constructor(private afs: AngularFirestore) {
-    this.cardsListRef = this.afs.collection<Card>('Cards');
-    this.cardList = this.cardsListRef.snapshotChanges().map(actions => {
+    this.mapsListRef = this.afs.collection<Map>('Maps');
+    this.mapList = this.mapsListRef.snapshotChanges().map(actions => {
       return actions.map(action => {
-        const data = action.payload.doc.data() as Card;
+        const data = action.payload.doc.data() as Map;
         const id = action.payload.doc.id;
         return {id, ...data};
       });
@@ -26,8 +30,16 @@ export class DataProvider {
 
   }
 
-  // constructor() {
-  //   console.log('Hello DataProvider Provider');
-  // }
+  deleteMap(map):void {
+      this.mapsListRef.doc(map.id).delete();
+  }
+
+  addNewMap(mapdata){
+    this.mapsListRef.add(mapdata);
+  }
+
+  updateMap(mapid, newdata ){
+    this.mapsListRef.doc(mapid).update(newdata);
+  }
 
 }

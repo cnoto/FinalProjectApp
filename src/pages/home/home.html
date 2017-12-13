@@ -1,33 +1,22 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title style="text-align: center">Take Me Home Tonight</ion-title>
+  <ion-navbar transparent>
+    <ion-title class="homeTitle">Take Me Home Tonight</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-  <ion-card *ngFor="let card of cards | async">
+<div class="holder">
+  <div class="cHolder">
+    <h1>Welcome back, <b>Neo</b>!</h1>
+  <button ion-button round large full color="secondary" (click)="gotoInfoPage()">Go Home</button>
+  </div>
 
-    <ion-item style="text-align: center">
-      Welcome back, <b>Neo</b>!
-    </ion-item>
-    <ion-row>
-      <ion-col width-50 style="text-align: center">
-        <button ion-button round large color="secondary" (click)="gotoInfoPage()">Go Home</button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
+</div>
 
 
   <ion-footer>
-    <ion-row>
-      <ion-item>
-        <button icon-only ion-button block large (click)="gotoContactPage()">
-          <ion-icon name="ios-contacts"></ion-icon>
-        </button>
-      </ion-item>
-    </ion-row>
+    <button class="cont" icon-only ion-button block large (click)="gotoContactPage()"><ion-icon name="ios-contacts"></ion-icon></button>
   </ion-footer>
 
 

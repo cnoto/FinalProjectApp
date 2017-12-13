@@ -9,10 +9,10 @@ import { DataProvider } from '../../providers/data/data';
 })
 export class HomePage {
 
-  cards: any;
+  // cards: any;
 
   constructor(public navCtrl: NavController, public dataService: DataProvider, public alertCtrl:AlertController) {
-    this.cards = this.dataService.cardList;
+    // this.cards = this.dataService.cardList;
   }
 
   // ionViewDidLoad(){
